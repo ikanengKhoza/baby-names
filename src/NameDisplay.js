@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React  from "react";
 
 const NameDisplay = (props) => {
-  const [maleOrFemale, setMaleOrFemale] = useState("");
-
-  function displayMorF() {
-    setMaleOrFemale(maleOrFemale);
-  }
+ 
 
   return (
     <div>
