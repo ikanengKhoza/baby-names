@@ -41,3 +41,15 @@
 .button-boy {
   background-color: yellow;
 }
+
+h1 {
+  margin: 10px;
+}
+
+input {
+  margin: 20px;
+}
+
+body {
+  background-color: #282c34;
+}
