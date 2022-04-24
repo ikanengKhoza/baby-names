@@ -4,10 +4,10 @@ import NameData from "./babyNamesData.json";
 //put everything in here, filter after sort
 
 const BabyName = ({ nameProp, handleClick }) => {
-  const { id, name, sex } = nameProp;
+  const { name, sex } = nameProp;
   return (
-   
-    <button onClick={() => handleClick(nameProp)}
+    <button
+      onClick={() => handleClick(nameProp)}
       className="btn-background"
       style={{
         backgroundColor: sex === "m" ? "#c40f51" : "none",
@@ -15,7 +15,6 @@ const BabyName = ({ nameProp, handleClick }) => {
     >
       {name}
     </button>
-    
   );
 };
 
