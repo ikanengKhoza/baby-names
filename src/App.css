@@ -35,12 +35,12 @@
 }
 
 .btn-background {
-  background-color: rgb(18, 235, 145);
+  background-color: rgb(35, 233, 150);
+  border: none;
+  border-radius: 15px;
+  margin: 1px;
 }
 
-.button-boy {
-  background-color: yellow;
-}
 
 h1 {
   margin: 10px;

@@ -10,7 +10,7 @@ const BabyName = ({ nameProp, handleClick }) => {
       onClick={() => handleClick(nameProp)}
       className="btn-background"
       style={{
-        backgroundColor: sex === "m" ? "#c40f51" : "none",
+        backgroundColor: sex === "m" ? "#F95700FF" : "none",
       }}
     >
       {name}
@@ -21,11 +21,16 @@ const BabyName = ({ nameProp, handleClick }) => {
 const NameDisplay = () => {
   const [searchInput, setSearchInput] = useState("");
   const [favourites, setFavourites] = useState([]);
+  const [filteredSex, setfilteredSex] = useState("all");
 
   const handleNameClick = (nameObject) => {
     setFavourites([...favourites, nameObject]);
   };
 
+  const handleRemoveNameFavourite = (nameObject) => {
+    setFavourites(favourites.filter((fav) => fav.id !== nameObject.id));
+  };
+   
   return (
     <div>
       <div>
@@ -34,12 +39,44 @@ const NameDisplay = () => {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
+
+
+       
+
+        <div>
+          <button
+            onClick={() => setfilteredSex("all")}
+            style={{
+              backgroundColor: filteredSex === "all" ? "red" : "beige",
+            }}
+          >
+            all
+          </button>
+          <button
+            onClick={() => setfilteredSex("m")}
+            style={{
+              backgroundColor: filteredSex === "m" ? "#F95700FF" : "beige",
+            }}
+          >
+           m
+          </button>
+          <button
+            onClick={() => setfilteredSex("f")}
+            style={{
+              backgroundColor: filteredSex === "f" ? "rgb(35, 233, 150)" : "beige",
+            }}
+          >
+           f
+          </button>
+        </div>
+
         <div>
           {favourites.map((fav) => (
-            <BabyName nameProp={fav} />
-          ))}{" "}
+            <BabyName nameProp={fav} handleClick={handleRemoveNameFavourite} />
+          ))}
           Click Any Name To Add Favourites
         </div>
+
         <hr />
 
         {NameData.sort((a, b) => (a.name > b.name ? 1 : -1))
